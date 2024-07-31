@@ -14,10 +14,27 @@
             transform: scale(1.05);
             transition: transform 0.3s ease-in-out;
         }
+        .parallax {
+            background-image: url('/Users/Kyle/ascend\ digital/mountain.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: background-color 0.3s ease-in-out;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800">
-    <header class="bg-white shadow-md">
+    <header class="sticky-nav shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="text-2xl font-bold text-indigo-600">Ascend Digital</div>
             <ul class="flex space-x-6">
@@ -30,8 +47,8 @@
     </header>
 
     <main>
-        <section class="gradient-bg text-white py-20">
-            <div class="container mx-auto px-6 text-center">
+        <section class="parallax flex items-center justify-center">
+            <div class="text-center text-white">
                 <h1 class="text-5xl font-bold mb-4">Elevating Business in the Digital Age</h1>
                 <p class="text-xl mb-8">Leverage AI and innovative strategies to propel your business to new heights</p>
                 <a href="#" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:bg-indigo-100 transition">Get Started</a>
@@ -127,5 +144,29 @@
             <p>&copy; 2024 Ascend Digital. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Change navbar background on scroll
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('.sticky-nav');
+                if (window.scrollY > 100) {
+                    nav.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                } else {
+                    nav.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
