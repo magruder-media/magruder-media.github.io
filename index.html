@@ -31,11 +31,12 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.2); /* Dark gradient overlay */
-            z-index: 0;
+            z-index: 1; /* Make sure the gradient overlay is below the content */
         }
         .parallax-content {
             position: relative;
-            z-index: 1;
+            z-index: 2; /* Ensure content is above the gradient overlay */
+            color: white; /* Optional: Ensures text is white */
         }
         .sticky-nav {
             position: fixed;
