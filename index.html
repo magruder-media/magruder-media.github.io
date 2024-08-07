@@ -8,19 +8,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <style>
         .gradient-bg {
-            background: linear-gradient(135deg, #6366F1, #3B82F6);
+            background: linear-gradient(135deg, #004aad, #0354bf);
         }
         .hover-scale:hover {
             transform: scale(1.05);
             transition: transform 0.3s ease-in-out;
         }
         .parallax {
-            background-image: url('mountain.jpg');
+            position: relative;
+            background-image: url('/Users/Kyle/ascend digital/mountain.jpg');
             height: 100vh;
             background-attachment: fixed;
-            background-position: top;
+            background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+        }
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2); /* Dark gradient overlay */
+        }
+        .parallax-content {
+            position: relative;
+            z-index: 1;
         }
         .sticky-nav {
             position: fixed;
@@ -31,6 +45,12 @@
             background-color: rgba(255, 255, 255, 0.9);
             transition: background-color 0.3s ease-in-out;
         }
+        .text-indigo-600 {
+            color: #004aad;
+        }
+        .bg-indigo-600 {
+            background-color: #004aad;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800">
@@ -39,8 +59,8 @@
             <div class="text-2xl font-bold text-indigo-600">Ascend Digital</div>
             <ul class="flex space-x-6">
                 <li><a href="#services" class="hover:text-indigo-600 transition">Services</a></li>
-                <li><a href="#case-studies" class="hover:text-indigo-600 transition">Case Studies</a></li>
-                <li><a href="#about" class="hover:text-indigo-600 transition">About</a></li>
+                <!-- <li><a href="#case-studies" class="hover:text-indigo-600 transition">Case Studies</a></li> -->
+                <!-- <li><a href="#about" class="hover:text-indigo-600 transition">About</a></li> -->
                 <li><a href="#blog" class="hover:text-indigo-600 transition">Blog</a></li>
             </ul>
         </nav>
@@ -50,7 +70,7 @@
         <section class="parallax flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="text-5xl font-bold mb-4">Elevating Business in the Digital Age</h1>
-                <p class="text-xl mb-8">Leverage AI and innovative strategies to propel your business to new heights</p>
+                <p class="text-xl mb-8">Leverage technology and innovative strategies to propel your business to new heights</p>
                 <a href="#" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:bg-indigo-100 transition">Get Started</a>
             </div>
         </section>
@@ -71,14 +91,14 @@
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
                         <i class="fas fa-chart-line text-4xl text-indigo-600 mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-4">Data-Driven Insights</h3>
+                        <h3 class="text-2xl font-bold mb-4">Business Strategy</h3>
                         <p>Turn your data into actionable insights for smarter decision-making.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="case-studies" class="py-20">
+        <!-- <section id="case-studies" class="py-20">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12">Success Stories</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -92,16 +112,34 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section id="about" class="py-20 bg-gray-100">
+        <section id="about" class="py-20 ">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl font-bold mb-8">About Ascend Digital</h2>
-                <p class="text-xl max-w-2xl mx-auto">Founded by a tech visionary with over 8 years of experience, Ascend Digital is your partner in navigating the complex digital landscape.</p>
+                <h2 class="text-5xl font-extrabold mb-6 text-gray-800">Welcome to Ascend Digital</h2>
+                <p class="text-lg max-w-3xl mx-auto leading-relaxed text-gray-600 mb-6">
+                    Revolutionizing businesses through cutting-edge technology and data-driven strategies. We are your partners in digital transformation, with experience guiding large corporations and high-growth startups to success in the digital age.
+                </p>
+                <div class="max-w-3xl mx-auto text-left">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">Our Approach:</h3>
+                    <ul class="list-disc list-inside text-lg text-gray-600 mb-6">
+                        <li class="mb-2">Seamless integration of AI, marketing innovation, and technology integration</li>
+                        <li class="mb-2">Deep technical knowledge combined with strategic business acumen</li>
+                        <li class="mb-2">Continuous exploration of emerging technologies and methodologies</li>
+                    </ul>
+                    <p class="text-lg leading-relaxed text-gray-600 mb-6">
+                        Whether you're a large corporation or an ambitious startup, we have the expertise to propel your organization to the forefront of your industry.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-600">
+                        Ready to embark on a transformative digital journey? <a href="#signup" class="text-indigo-600 font-semibold hover:underline">Explore our services</a> and let's revolutionize your business together.
+                    </p>
+                </div>
             </div>
         </section>
+        
+        
 
-        <section id="blog" class="py-20">
+        <!-- <section id="blog" class="py-20 bg-gray-100">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-center mb-12">Latest Insights</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -128,18 +166,103 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-        <section class="gradient-bg text-white py-20">
+        <section id='signup' class="gradient-bg text-white py-20">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-4xl font-bold mb-8">Ready to Ascend?</h2>
                 <p class="text-xl mb-8">Schedule a consultation and start your digital transformation journey today.</p>
-                <a href="#" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:bg-indigo-100 transition">Book a Consultation</a>
-            </div>
+                <div class="text-left">
+                    <link rel="stylesheet" href="https://cdn.formbold.com/formbold.css" />
+                    <br />
+                    <div class="formbold-builder-form themeOne">
+                      <form
+                        enctype="multipart/form-data"
+                        action="https://formbold.com/s/3ngQp"
+                        method="POST"
+                        class="mx-auto w-full max-w-[570px] rounded-[10px] border border-stroke bg-white p-10 themeOne"
+                      >
+                        <div class="SortableItem fb-builder-item">
+                          <h3
+                            class="static text-xl font-semibold leading-tight text-black sm:text-[28px]"
+                          >
+                            Contact
+                          </h3>
+                        </div>
+                        <div class="SortableItem fb-builder-item">
+                          <div class="mb-4">
+                            <label class="mb-2.5 block text-base text-black"
+                              ><span>Name</span></label
+                            ><input
+                              type="text"
+                              class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
+                              name="text_input_F6636197-E95F-4F04-A7DA-E56AE0B9A470"
+                              placeholder="Name"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <div class="SortableItem fb-builder-item">
+                          <div class="mb-4">
+                            <label class="mb-2.5 block text-base text-black"
+                              ><span>Phone Number</span></label
+                            ><input
+                              type="tel"
+                              class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
+                              name="phone_input_1154698D-7318-49B4-BF58-59D555AC70CC"
+                              placeholder="Phone Number"
+                              value=""
+                            />
+                          </div>
+                        </div>
+                        <div class="SortableItem fb-builder-item">
+                          <div class="mb-4">
+                            <label class="mb-2.5 block text-base text-black"
+                              ><span>E-Mail</span
+                              ><span class="label-required pl-1 text-red-400">*</span></label
+                            ><input
+                              type="email"
+                              class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
+                              name="email_input_33B91064-3372-4F20-B197-B7842093434B"
+                              placeholder="Enter Email Address"
+                              value=""
+                              required=""
+                            />
+                          </div>
+                        </div>
+                        <div class="SortableItem fb-builder-item">
+                          <div class="mb-4">
+                            <label class="mb-2.5 block text-base text-black"
+                              ><span>Message</span></label
+                            ><textarea
+                              class="w-full rounded border border-stroke bg-white px-5 py-3 text-base text-black outline-none focus:border-primary"
+                              name="text_area_B46ED956-6741-4A0D-98BA-1BDB21056DB7"
+                              placeholder="Message"
+                            ></textarea>
+                          </div>
+                        </div>
+                        <div class="btn-toolbar flex items-center space-x-3">
+                          <input
+                            type="submit"
+                            class="bg-white text-indigo-600 px-8 py-3 rounded-full font-bold hover:bg-indigo-100 transition"
+                            value="Submit"
+                          />
+                        </div>
+                      </form>
+                      <p class="mt-8 flex items-center justify-center">
+                        
+                      </p>
+                    </div>
+                </div>
+             </div>
         </section>
+        
+        
+          
+
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="footer bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2024 Ascend Digital. All rights reserved.</p>
         </div>
